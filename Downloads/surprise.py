@@ -6,7 +6,7 @@ from surprise import SVD, Dataset, Reader
 @st.cache_data
 def load_data():
     # Load the data
-    data_df = pd.read_excel('[final] April 2015 to Nov 30 2019 - Transformed Jester Data - .xlsx')
+    data_df = pd.read_excel('jester-data/[final] April 2015 to Nov 30 2019 - Transformed Jester Data - .xlsx')
     data_df.columns = range(data_df.shape[1]) # Rename columns to match with jokes dataframe
 
     # Convert data_df from wide format to long format
@@ -17,7 +17,7 @@ def load_data():
     data_df = data_df[data_df['rating'] != 99.0]
 
     # Load the jokes
-    jokes_df = pd.read_excel('Dataset4JokeSet.xlsx')
+    jokes_df = pd.read_excel('jester-data/Dataset4JokeSet.xlsx')
     jokes_df.columns = ['joke']
     jokes_df.index.name = 'joke_id'
 
